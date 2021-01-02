@@ -1,0 +1,54 @@
+﻿@model RecipeListViewModel;
+@{
+    ViewBag.Title = "Admin - ReciPedia";
+}
+<div class="offset-md-1" style="padding-left: 14px;">
+    <h3>Admin Recipe</h3>
+</div>
+<br />
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success mt-1">@TempData["message"]</div>
+}
+<div class="col-10 offset-1 text-center FilterTools">
+    <table class="table table-responsive-md table-hover">
+        <thead class="table thead-dark">
+            <tr>
+                <th width="50%">Recipe</th>
+                <th width="50%">Action</th>
+            </tr>
+        </thead>
+        <tbody class="table-hover tbody tr:hover">
+            @foreach (var r in Model.Recipes)
+            {
+                <tr>
+                    <td width="50%" style="vertical-align: middle"><a class="recipeName" asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@r.RecipeID">@r.Name</a></td>
+                    <td width="50%">
+                        <form asp-controller="Admin" asp-action="DeleteRecipe" method="post">
+                            <input type="hidden" name="RecipeID" value="@r.RecipeID" />
+                            <a asp-action="EditRecipe" class="btn btn-sm btn-secondary" asp-route-RecipeID="@r.RecipeID">Edit</a>
+                            <input type="submit" class="btn btn-sm btn-danger" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<div class="text-center"
+     page-model="@Model.PagingInfo"
+     page-action="Index"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-light"
+     page-class-selected="btn-primary">
+</div>
+<br />
+
+<span class="float-right">
+    <a asp-controller="Admin" asp-action="AddRecipe"><i class="fa fa-plus-circle fa-4x"></i></a>
+</span>
+<span class="float-left">
+    <a class="btn btn-warning" asp-controller="Account" asp-action="Logout"><i class="fa fa-sign-out"></i>Logout</a>
+</span>

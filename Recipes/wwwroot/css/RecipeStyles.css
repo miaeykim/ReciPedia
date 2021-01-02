@@ -1,0 +1,50 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+#article {
+    padding: 15px;
+    background: rgba(255,255,255,0.2);
+    width: 80%;
+    min-height: 100vh;
+    margin: 1% auto;
+    font-size: 85%;
+    color: #464c52;
+}
+
+.FilterTools {
+    table-layout: auto;
+    width: 100%;
+    align-content: center;
+}
+
+#ingredient {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 10px;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+}
+
+ol {
+    padding-bottom: 30px;
+    padding-left: 14px;
+}
+
+.recipeName {
+    color: #464c52;
+}
+
+.validation-summary-errors ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.navbar a {
+    color: #464c52;
+}
+
+input:checked + label {
+    text-decoration: line-through;
+}

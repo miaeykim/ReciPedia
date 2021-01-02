@@ -1,0 +1,41 @@
+﻿@model Recipe
+@{
+    ViewBag.Title = Model.Name + " - ReciPedia";
+}
+@{
+    List<string> ingredients = Model.Ingredients.Split(new char[] { ',' }).ToList();
+    List<string> instructions = Model.Instruction.Split(new char[] { '/' }).ToList();
+}
+<div class="panel-body">
+    <div>
+        <form method="post">
+            <h3 align="center">@Model.Name</h3>
+            <h6 align="center" class="font-italic">@Model.Category</h6>
+            <br>
+            <input type="hidden" name="Id" value="@Model.RecipeID">
+            <h3>Ingredients</h3>
+            <div id="ingredient">
+                <p>
+                    @foreach (var i in ingredients)
+                    {
+                        <div>
+                            <input type="checkbox" id="ingredient">
+                            <label for="ingredient">@i</label>
+                        </div>
+                    }
+                </p>
+            </div>
+
+            <br>
+            <h3>Instruction</h3>
+            <p>
+                <ol>
+                    @foreach (var i in instructions)
+                    {
+                        <li>@i</li>
+                    }
+                </ol>
+            </p>
+        </form>
+    </div>
+</div>
