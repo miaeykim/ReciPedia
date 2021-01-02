@@ -22,7 +22,7 @@
             @foreach (var r in Model.Recipes)
             {
                 <tr>
-                    <td width="50%" style="vertical-align: middle"><a class="recipeName" asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@r.RecipeID">@r.Name</a></td>
+                    <td width="50%" style="vertical-align: middle"><a class="listRecipe" asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@r.RecipeID">@r.Name</a></td>
                     <td width="50%">
                         <form asp-controller="Admin" asp-action="DeleteRecipe" method="post">
                             <input type="hidden" name="RecipeID" value="@r.RecipeID" />

@@ -37,7 +37,7 @@
             @foreach (var s in Model.Recipes)
             {
                 <tr>
-                    <td width="70%"><a class="recipeName" asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@s.RecipeID">@s.Name</a></td>
+                    <td width="70%"><a class="listRecipe" asp-action="ViewRecipe" asp-controller="Home" asp-route-id="@s.RecipeID">@s.Name</a></td>
                     <td width="30%">@s.Category</td>
                 </tr>
             }

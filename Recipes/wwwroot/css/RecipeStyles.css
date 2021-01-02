@@ -28,11 +28,26 @@
 }
 
 ol {
-    padding-bottom: 30px;
-    padding-left: 14px;
+    list-style: none;
+    counter-reset: step-counter;
+    padding-left: 0;
 }
+    ol li {
+        counter-increment: step-counter;
+        position: relative;
+    }
+        ol li::before {
+            content: counter(step-counter) ". ";
+            color: #fcd000;
+            font-size: 1.3rem;
+            font-weight: bold;
+            line-height: 2.3em;
+            padding-bottom: 5px;
+            color: #464c52;
+            text-align: center;
+        }
 
-.recipeName {
+.listRecipe {
     color: #464c52;
 }
 

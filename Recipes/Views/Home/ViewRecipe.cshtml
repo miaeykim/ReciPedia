@@ -9,11 +9,11 @@
 <div class="panel-body">
     <div>
         <form method="post">
-            <h3 align="center">@Model.Name</h3>
-            <h6 align="center" class="font-italic">@Model.Category</h6>
+            <h3 class="font-weight-bold" align="center">@Model.Name</h3>
+            <h6 align="center">@Model.Category</h6>
             <br>
             <input type="hidden" name="Id" value="@Model.RecipeID">
-            <h3>Ingredients</h3>
+            <h3><i class="fa fa-search"></i> Ingredients</h3>
             <div id="ingredient">
                 <p>
                     @foreach (var i in ingredients)
@@ -25,15 +25,14 @@
                     }
                 </p>
             </div>
-
-            <br>
-            <h3>Instruction</h3>
+            <br /><br />
+            <h3><i class="fa fa-pencil"></i> Instruction</h3>
             <p>
                 <ol>
                     @foreach (var i in instructions)
-                    {
+                     {
                         <li>@i</li>
-                    }
+                     }
                 </ol>
             </p>
         </form>
